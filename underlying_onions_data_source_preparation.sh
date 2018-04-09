@@ -29,8 +29,7 @@ YEAR=$(date -d -0day '+%Y')
 MONTH=$(date -d -0day '+%m')
 DAY=$(date -d -0day '+%d')
 LOGFILE=/tmp/airflow_scheduling.log
-# TODO WORK_DIR=/home/master/yangcongDatabase/v4collections/temp/
-WORK_DIR=/tmp/test_here_pro
+WORK_DIR=/home/master/yangcongDatabase/v4collections/temp/
 
 #------------------------------------------------------------------------------------
 # UTILITY FUNCTIONS
