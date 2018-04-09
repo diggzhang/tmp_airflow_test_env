@@ -1,47 +1,30 @@
 #!/bin/bash
 set -e # exit on error
+
 #------------------------------------------------------------------------------------
-# What: A quick-start BASH template script
-# Author: Adam Hayward <adam at happy dot cat>
-# License: http://svn.happy.cat/public/LICENSE.txt
+# What: A quick-start BASH template for airflow shell command
 #
-# Features:
-#   log "A log message"
-#   debug "A debug message only displayed if '-v' option passed"
-#   error "A fatal error message and exit with code:" 2
-#   usage - print a usage message
-#   get_options - parse command-line options, defaults below
+# Features: description function of your script
 #
-# Standard command-line options:
-#   -v verbose
-#   -h help message
-#   -V version number
-# Long-format options:
-#   --version
-#   --help
-#
-#------------------------------------------------------------------------------------
-#
-# example-script.sh - Short description
-#
-# author:       Author of script
+# author:       Id
 # contact:	    Email
-# since:        Date
+# since:        Initial date
 #
+# Update: date - description
 #------------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------------
 # SCRIPT CONFIGURATION
 #------------------------------------------------------------------------------------
 
-SCRIPT_NAME=`basename $0`
+SCRIPT_NAME=$(basename "$0")
 
 # If debug information should be shown
 VERBOSE=
 
 VERSION=0.1
 
-# Add your own global variables here
+# Add global variables here
 OP1=
 OP2=
 
@@ -53,20 +36,6 @@ OP2=
 log ()
 {
     echo "[${SCRIPT_NAME}]: $1" > /dev/stderr
-}
-
-# print a debug message - only outputs is VERBOSE flag is set
-debug()
-{
-    [ "$VERBOSE" ] && echo "[${SCRIPT_NAME}]: $1" > /dev/stderr
-}
-
-# print an error message and exit()
-error()
-{
-    echo "[${SCRIPT_NAME}] ERROR: $1" > /dev/stderr
-    [ $# -gt 1 ] && exit $2
-    exit 1
 }
 
 # Define your own script functions here
@@ -92,9 +61,9 @@ USAGE
 # Get the script options
 get_options()
 {
-    while getopts "a:b:hvV-:" OPTION
+    while getopts "a:b:hvV:" OPTION
     do
-        if [ $OPTION == "-" ]; then
+        if [ "$OPTION" == "-" ]; then
             OPTION=$OPTARG
         fi
         case $OPTION in
