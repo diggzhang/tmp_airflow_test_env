@@ -77,10 +77,9 @@ restore_dbs() {
     mongorestore --drop --db onions ./"$YEAR$MONTH$DAY"/onions/
     mongorestore --drop --db sundries ./"$YEAR$MONTH$DAY"/sundries/
   }
-  if ! restore_processing;then
-    echo "清理临时文件"
-    rm -rf ./"$YEAR$MONTH$DAY" "$YEAR$MONTH$DAY".7z
-  fi
+  restore_processing
+  echo "清理临时文件"
+  rm -rf ./"$YEAR$MONTH$DAY" "$YEAR$MONTH$DAY".7z
   date
 }
 
